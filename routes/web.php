@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// タスク一覧画面を表示
+Route::get('/folders/{id}/tasks','TaskController@index')->name('tasks.index');
+// フォルダの新規作成画面と登録
+Route::get('/folders/create','FolderController@create')->name('folders.create');
+Route::post('/folders/create','FolderController@store');
